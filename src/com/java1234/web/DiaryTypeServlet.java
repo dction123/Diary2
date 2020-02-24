@@ -59,13 +59,19 @@ public class DiaryTypeServlet extends HttpServlet{
 		
 			Connection con = null;
 			try {
+				int resultNum = 0;
 				con = dbUtil.getCon();
 				if(StringUtil.isNotEmpty(diaryTypeId)){
-					diaryTypeDao.updateDiaryType(con, diaryType);
+					resultNum = diaryTypeDao.updateDiaryType(con, diaryType);
 				}else{
-					diaryTypeDao.addDiaryType(con, diaryType);
+					resultNum = diaryTypeDao.addDiaryType(con, diaryType);
 				}
 				
+				if(resultNum<0){
+					request.setAttribute("error", "添加或保存失败");
+					request.setAttribute("mainPage", "diaryTypePreSave");
+					request.getRequestDispatcher("mainTemp.jsp").forward(request, response);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 
@@ -77,7 +83,7 @@ public class DiaryTypeServlet extends HttpServlet{
 				}
 			}
 		
-		request.getRequestDispatcher("diaryType?action=list").forward(request, response);;
+		request.getRequestDispatcher("diaryType?action=list").forward(request, response);
 		
 	}
 	
