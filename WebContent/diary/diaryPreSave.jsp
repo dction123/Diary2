@@ -9,7 +9,7 @@
 <c:choose>
 	<c:when test="${diary.diaryId!=null }">
 		<div class="data_list_title">
-		<img src="${pageContext.request.contextPath}/images/diary_add_icon.png"/>
+		<img src="${pageContext.request.contextPath}/images/diary_type_edit_icon.png"/>
 		修改日记
 	</div>
 	</c:when>

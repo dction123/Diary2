@@ -53,6 +53,7 @@
 
 .data_list .nickName , .data_list .userSign{
 	text-align: center;
+	margin-top: 10px;
 }
 
 .data_list .diary_title{

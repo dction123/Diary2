@@ -23,7 +23,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">明啊日记本</a>
+          <a class="brand" href="main?all=true">明啊日记本</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="main?all=true"><i class="icon-home"></i>&nbsp;主页</a></li>
@@ -53,8 +53,10 @@
 					个人中心
 				</div>
 				<div class="user_image">
-					<img alt="" src="${currentUser.imageName }">
+					<img alt="" src="/upload/${currentUser.imageName}">
+						
 				</div>
+			
 				<div class="nickName">${currentUser.nickName}</div>
 				<div class="userSign">(${currentUser.mood })</div>
 			</div>		

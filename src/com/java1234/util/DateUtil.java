@@ -46,5 +46,17 @@ public class DateUtil {
 		
 		
 	}
+	
+	/**
+	 * 获取当前时间
+	 * @return
+	 */
+	public static String getCurrentDateStr(){
+		Date date = new Date();
+		SimpleDateFormat sdf =new SimpleDateFormat("yyyMMddhhmmss");
+		return sdf.format(date);
+		
+	}
+	
 
 }

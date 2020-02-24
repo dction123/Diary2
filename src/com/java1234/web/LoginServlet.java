@@ -39,8 +39,6 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String remember = request.getParameter("remember");
 			
-		System.out.println("user: " +userName);
-		System.out.println("password: " +password	);
 		Connection con = null;
 		 
 		try {

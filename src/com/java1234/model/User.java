@@ -1,16 +1,16 @@
 package com.java1234.model;
 
 public class User {
-	private String userId;
+	private int userId;
 	private String userName;
 	private String password;
 	private String nickName;
 	private String imageName;
 	private String mood;
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {
