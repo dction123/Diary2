@@ -38,9 +38,10 @@
 							</td>
 						</tr>
 					</c:forEach>			
-					
 			</table>
-		
+			<div  align="center">
+			<font id="error" color="red" >${error }</font>
+			</div>
 		</div>
 		
 </div>

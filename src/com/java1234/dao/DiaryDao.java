@@ -184,9 +184,19 @@ public class DiaryDao {
 		pstmt.setInt(4, diary.getDiaryId());
 		return pstmt.executeUpdate();
 		
-		
-		
-		
-		
 	}
+	
+	
+	public boolean existDiaryFromDiaryTypeId(Connection con,String diaryTypeId)throws Exception{
+		String sql = "select * from t_diary where typeId=?";
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, Integer.parseInt(diaryTypeId));
+		ResultSet rs = pstmt.executeQuery();
+		
+		if(rs.next()){
+			return true;
+		}
+		return false;
+	}
+	
 }

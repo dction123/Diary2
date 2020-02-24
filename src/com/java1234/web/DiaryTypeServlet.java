@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.java1234.dao.DiaryDao;
 import com.java1234.dao.DiaryTypeDao;
+import com.java1234.model.Diary;
 import com.java1234.model.DiaryType;
 import com.java1234.util.DbUtil;
 import com.java1234.util.StringUtil;
@@ -22,7 +24,7 @@ public class DiaryTypeServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	DbUtil dbUtil = new DbUtil();	
 	DiaryTypeDao diaryTypeDao = new DiaryTypeDao();
-	
+	DiaryDao diaryDao = new DiaryDao();
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doPost(request, response);
@@ -133,12 +135,20 @@ public class DiaryTypeServlet extends HttpServlet{
 		
 		try {
 			con = dbUtil.getCon();
+			//根据diaryTypeId去diary表中查找是否有数据 当该类型下没有数据的时候才能删除 
 			
-			int n= diaryTypeDao.deleteDiaryType(con, diaryTypeId);
-			
-			if (n>0) {
+			if(!diaryDao.existDiaryFromDiaryTypeId(con, diaryTypeId)){
+				int n= diaryTypeDao.deleteDiaryType(con, diaryTypeId);
+				
+				if (n>0) {
+					request.getRequestDispatcher("diaryType?action=list").forward(request, response);
+				}
+			}else{
+				request.setAttribute("error", "日志类别下有日志，不能删除该类别！");
 				request.getRequestDispatcher("diaryType?action=list").forward(request, response);
+
 			}
+			
 			
 			
 		} catch (Exception e) {

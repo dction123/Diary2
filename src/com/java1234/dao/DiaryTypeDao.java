@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.java1234.model.Diary;
 import com.java1234.model.DiaryType;
 import com.java1234.util.DbUtil;
 
@@ -119,8 +120,7 @@ public class DiaryTypeDao {
 	}
 	
 	
-	
-	
+
 	
 	
 	
