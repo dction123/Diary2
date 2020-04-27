@@ -34,7 +34,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>个人日记本登录</title>
+<title>一只明呀日记本登录</title>
 <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/bootstrap/js/jQuery.js"></script>
@@ -44,7 +44,8 @@
 	  body {
         padding-top: 200px;
         padding-bottom: 40px;
-        background-image: url('images/star.gif');
+        background-image: url('images/star4.jpg');
+      	background-size: 100% 100%;
       }
       
       .form-signin-heading{
@@ -96,17 +97,19 @@
 <body>
 <div class="container">
       <form name="myForm" class="form-signin" action="login" method="post" onsubmit="return checkForm()">
-        <h2 class="form-signin-heading">屌丝日记本</h2>
+        <h2 class="form-signin-heading">一只明呀日记本</h2>
         <input id="userName" name="userName" value="${user.userName }"  type="text" class="input-block-level" placeholder="屌丝名...">
         <input id="password" name="password" value="${user.password }"   type="password" class="input-block-level" placeholder="屌丝码..." >
         <label class="checkbox">
           <input id="remember" name="remember" type="checkbox" value="remember-me">记住我 &nbsp;&nbsp;&nbsp;&nbsp; <font id="error" color="red">${error }</font>  
+           <a href="#" style="text-align: right;font-size: 15px;">注册</a>
         </label>
+       
         <button class="btn btn-large btn-primary" type="submit">登录</button>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <button class="btn btn-large btn-primary" type="button" >重置</button>
 
-<p align="center" style="padding-top: 15px;">版权所有  2020  良友资源  <a href="http://ly16.qewei.com" target="_blank">http://www.java1234.com</a></p>
+<p align="center" style="padding-top: 15px;">版权所有  2020  良友资源  <a href="http://ly16.qewei.com" target="_blank"></a></p>
       </form>
 </div>
 </body>

@@ -11,6 +11,7 @@ public class Diary {
 	private String releaseDatestr;
 	private int diaryCount;
 	private String typeName;
+	private int viewCount;
 	public int getDiaryCount() {
 		return diaryCount;
 	}
@@ -76,6 +77,12 @@ public class Diary {
 		this.title = title;
 		this.content = content;
 		this.typeId = typeId;
+	}
+	public int getViewCount() {
+		return viewCount;
+	}
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
 	}
 	
 }

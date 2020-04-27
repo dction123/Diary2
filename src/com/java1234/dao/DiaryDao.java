@@ -132,6 +132,7 @@ public class DiaryDao {
 			diary.setContent(rs.getString("content"));
 			diary.setTypeId(rs.getInt("typeId"));
 			diary.setTypeName(rs.getString("typeName"));
+			diary.setViewCount(rs.getInt("viewCount"));
 			diary.setReleaseDate(DateUtil.formatString(rs.getString("releaseDate"), "yyyy-MM-dd HH:mm:ss"));
 		}																			
 		return diary;
@@ -146,7 +147,7 @@ public class DiaryDao {
 	 * @throws Exception
 	 */
 	public  int addDiary(Connection con,Diary diary)throws Exception{
-		String sql = "insert into t_diary values(null,?,?,?,now())";
+		String sql = "insert into t_diary values(null,?,?,?,null,now())";
 		
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, diary.getTitle());
@@ -199,4 +200,21 @@ public class DiaryDao {
 		return false;
 	}
 	
+	/**
+	 * 保存浏览次数
+	 * @throws SQLException 
+	 */
+
+	public int  saveViewCount(Connection con,int diaryId,int count) throws SQLException{
+		
+		
+		String sql = "update t_diary set viewCount=? where diaryId=?";
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, count);
+		pstmt.setInt(2, diaryId);
+		return pstmt.executeUpdate();
+	}
+	
+	
 }
+

@@ -3,6 +3,7 @@ package com.java1234.web;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 
@@ -47,10 +48,26 @@ public class UserServlet extends HttpServlet{
 			userShow(request,response);
 		}else if ("save".equals(action)) {
 			userSave(request,response);
+		}else if ("exit".equals(action)) {
+			exit(request,response);
 		}
 	}
 
-	
+	/**
+	 * 退出系統
+	 * @param request
+	 * @param response
+	 * @throws IOException 
+	 */
+	private void exit(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+		Enumeration<?> e=session.getAttributeNames(); 
+		while(e.hasMoreElements()){ String sessionName=(String)e.nextElement(); 
+		//System.out.println("存在的session有："+sessionName); 
+		session.removeAttribute(sessionName); }
+		response.sendRedirect("login.jsp");
+	}
+
 	private void userShow(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		
 			request.setAttribute("mainPage", "user/userSave.jsp");

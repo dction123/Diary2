@@ -20,7 +20,7 @@
 	</div>
 <div class="row-fluid" style="padding-top: 20px;">
 	 <div class="span4">
-	 	<img alt="" src="${currentUser.imageName }">
+	 	<img alt="" src="Diary2/${currentUser.imageName }">
 	 </div>
 	 <div class="span8">
 	 	<form action="user?action=save" onsubmit="return checkForm()" enctype="multipart/form-data" method="post">

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import com.java1234.dao.DiaryDao;
 import com.java1234.model.Diary;
 import com.java1234.util.DbUtil;
@@ -210,11 +211,12 @@ public class DiaryServlet extends HttpServlet {
 	 */
 	private void diaryShow(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String diaryId = request.getParameter("diaryId");
-		
+	
 		Connection con = null;
 		try {
 			con = dbUtil.getCon();
 			Diary diary = diaryDao.ShowDiary(con, diaryId);
+			
 			request.setAttribute("diary",diary);
 			request.setAttribute("mainPage", "diary/diaryShow.jsp");
 			request.getRequestDispatcher("mainTemp.jsp").forward(request, response);
@@ -231,4 +233,6 @@ public class DiaryServlet extends HttpServlet {
 		
 		
 	}
+	
+
 }
